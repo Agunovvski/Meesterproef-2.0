@@ -10,9 +10,26 @@
 </head>
 <body>
 
+    <!-- src https://greensock.com/forums/topic/19789-follow-by-mouse/ -->
+    <div class="circle">
+        <svg viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path
+                d="M75,100 C88.8071187,100 100,88.8071187 100,75 C100,61.1928813 88.8071187,50 75,50 C61.1928813,50 50,61.1928813 50,75 C50,88.8071187 61.1928813,100 75,100 Z">
+            </path>
+        </svg>
+    </div>
+
     <div id="fullpage">
         <div class="section active">
-            <h1>Hello World</h1>
+            <div class="slide">
+                <h1>First Slide</h1>
+            </div>
+            <div class="slide">
+                <h1>Second Slide</h1>
+            </div>
+            <div class="slide">
+                <h1>Third Slide</h1>
+            </div>
         </div>
         <div class="section">
             <h1>Hello World</h1>
@@ -26,6 +43,8 @@
     </div>
 
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="./js/fullpage.js"></script>
     <script src="./js/javascript.js"></script>
 </body>

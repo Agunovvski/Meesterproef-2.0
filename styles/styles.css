@@ -1,3 +1,48 @@
+/* webfonts */
+
+
+@font-face {
+    font-family: 'Gotham Medium';
+    src: url('../Gotham/Gotham-Medium.otf');
+}
+
+@font-face {
+    font-family: 'Gotham Medium Italic';
+    src: url('../Gotham/Gotham-MediumItalic.otf');
+}
+
+@font-face {
+    font-family: 'Gotham Book';
+    src: url('../Gotham/Gotham-Book.ttf');
+}
+
+@font-face {
+    font-family: 'Gotham Book Italic';
+    src: url('../Gotham/Gotham-BookItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Gotham Light';
+    src: url('../Gotham/Gotham-Light.ttf');
+}
+
+
+@font-face {
+    font-family: 'Gotham Bold';
+    src: url('../Gotham/Gotham-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Gotham Bold Italic';
+    src: url('../Gotham/Gotham-BoldItalic.ttf');
+}
+
+
+
+
+/* START */
+
+
 body {
     background-color: #181818;
 }
@@ -6,6 +51,15 @@ h1, h2, h3, p {
     color: white;
 }
 
+h1, h2, h3 { 
+    font-family: 'Gotham Medium';
+    line-height: 1.3;
+}
+
+p {
+    font-family: 'Gotham Book';
+    line-height: 1.45;
+}
 
 
 /* Mouse circle follow, src=https: //greensock.com/forums/topic/19789-follow-by-mouse/ */
@@ -24,6 +78,7 @@ h1, h2, h3, p {
 }
 
 .circle svg {
+    opacity: .5;
     width: 100%;
     position: fixed;
     -webkit-transform: rotate(-90deg);
@@ -39,4 +94,17 @@ h1, h2, h3, p {
     fill: #fff;
     -webkit-transition: 600ms all cubic-bezier(.23, 1, .32, 1);
     transition: 600ms all cubic-bezier(.23, 1, .32, 1);
+}
+
+.second-title {
+    opacity: 0;
+}
+
+
+.layout-grid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 1rem;
 }

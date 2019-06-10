@@ -6,19 +6,21 @@ new fullpage('#fullpage', {
     //options here
     autoScrolling: true,
     scrollHorizontally: true,
-    // navigation: true,
-    // navigationTooltips: ['Intro', 'About', 'Section3', 'Section4'],
-    // showActiveTooltip: true,
     controlArrows: false,
     slidesNavigation: true,
     loopHorizontal: false,
     verticalCentered: false,
+    afterRender: function () {
+        var pluginContainer = this;
+
+        animateHead();
+    },
     afterSlideLoad: function (section, origin, destination, direction) {
         var loadedSlide = this;
 
         //first slide of the second section
         if (section.index == 0 && destination.index == 1) {
-            animateHead();
+            revealText();
             console.log('Succesfull!');
         }
     },
@@ -27,10 +29,6 @@ new fullpage('#fullpage', {
 
         //leaving the first slide of the 2nd Section to the right
         if (section.index == 0 && origin.index == 0 && direction == 'right') {
-            // alert("Leaving the fist slide!!");
-            // animateHead.restart(this);
-            // animateHead.restart();
-            // animateHead();
             console.log('Succesfull!');
         }
 
@@ -57,14 +55,32 @@ function animateHead() {
     var tlAnimateHead = new TimelineMax({ repeat: 0, paused: false, yoyo: false });
 
     tlAnimateHead
-    .set('.second-title', {opacity: 0, y: 50})
-    .to('.second-title', 1, {
+    .set('.welcome', {opacity: 0, y: 50})
+        .set('#fullpage', { scale: .5, opacity: 0})
+    .to('#fullpage', 2, { opacity: 1,scale: 1, ease: Power2.easeOut})
+    .staggerTo('.welcome', 1, {
         opacity: 1,
         y: 0,
         ease: Power2.easeOut
-    });
+    }, .5, '+=.5');
 
     return tlAnimateHead;
+
+}
+
+function revealText() {
+
+    var tlrevealText = new TimelineMax({ repeat: 0, paused: false, yoyo: false });
+
+    tlrevealText
+        .set('.section .slide:nth-of-type(2) .layout-grid p', { opacity: 0, y: 50 })
+        .staggerTo('.section .slide:nth-of-type(2) .layout-grid p', 1, {
+            opacity: 1,
+            y: 0,
+            ease: Power2.easeOut
+        }, .2);
+
+    return tlrevealText;
 
 }
 
@@ -95,8 +111,9 @@ layout.addEventListener('mousemove', function (e) {
 // Ticker event will be called on every frame
 TweenMax.ticker.addEventListener('tick', function () {
     if (mouse.moved) {
-        parallaxIt("p", -80);
-        parallaxIt("h1", -20);
+        parallaxIt("p", -50);
+        parallaxIt("h1", -30);
+        parallaxIt("#fullpage", -10);
     }
     mouse.moved = false;
 });

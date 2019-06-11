@@ -73,8 +73,8 @@ function revealText() {
     var tlrevealText = new TimelineMax({ repeat: 0, paused: false, yoyo: false });
 
     tlrevealText
-        .set('.section .slide:nth-of-type(2) .layout-grid p', { opacity: 0, y: 50 })
-        .staggerTo('.section .slide:nth-of-type(2) .layout-grid p', 1, {
+        .set('.infinity-gauntlet, .section .slide:nth-of-type(2) .layout-grid p', { opacity: 0, y: 50 })
+        .staggerTo('.infinity-gauntlet, .section .slide:nth-of-type(2) .layout-grid p', 1, {
             opacity: 1,
             y: 0,
             ease: Power2.easeOut
@@ -112,6 +112,7 @@ layout.addEventListener('mousemove', function (e) {
 TweenMax.ticker.addEventListener('tick', function () {
     if (mouse.moved) {
         parallaxIt("p", -50);
+        parallaxIt("img", -60);
         parallaxIt("h1", -30);
         parallaxIt("#fullpage", -10);
     }
@@ -128,3 +129,4 @@ function parallaxIt(target, movement) {
 window.addEventListener('resize scroll', function () {
     rect = layout.getBoundingClientRect();
 });
+
